@@ -15,21 +15,28 @@ Automate data enrichment with articles and abstracts sourced from PubMed and Sem
        return []
 
    
-2.Improved Abstract Retrieval: Modified to handle cases where abstracts are not available in PubMed. This ensures that the script handles missing abstracts gracefully and continues processing without crashing.
+2. Improved Abstract Retrieval:
+   Modified to handle cases where abstracts are not available in PubMed. This ensures that the script handles missing abstracts gracefully and continues processing without crashing.
+   
 abstract = article.get('Abstract', {}).get('AbstractText', '')
 
 
-3.Improved Query Reading: Wrapped query reading from the CSV file in a try-except block to handle file reading errors. This ensures that if there are any issues with reading the queries from the file, the script provides feedback and exits gracefully.
+4. Improved Query Reading:
+ Wrapped query reading from the CSV file in a try-except block to handle file reading errors. This ensures that if there are any issues with reading the queries from the file, the script provides feedback and exits gracefully.
+
 try:
     # Code block to read queries from CSV
 except Exception as e:
     print(f"Error reading queries: {e}")
     return
     
-4.Added Feedback: Added print statements to provide feedback on the success or failure of CSV generation. Users are notified whether the CSV file was generated successfully or if there were any errors during the process.
+4. Added Feedback:
+Added print statements to provide feedback on the success or failure of CSV generation. Users are notified whether the CSV file was generated successfully or if there were any errors during the process.
+
 try:
     # Code block to save DataFrame to CSV
     print("CSV file generated successfully.")
 except Exception as e:
     print(f"Error saving to CSV: {e}")
+    
 Minor Fixes: Fixed indentation issues and corrected parameter types in PubMed search to ensure consistency and readability.
